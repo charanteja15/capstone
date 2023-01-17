@@ -1,0 +1,18 @@
+
+
+do connect app db
+------------------------------------------------------------------------------------------------------------
+Hibernate: create table admin (admin_id bigint not null, admin_name varchar(255), admin_password varchar(255), email varchar(255), is_active bit not null, primary key (admin_id)) engine=InnoDB
+Hibernate: create table answer_table (id bigint not null, approved_by varchar(255), created_by varchar(255), date_time varchar(255), desc_answer varchar(255), img_src varchar(255), status varchar(255), question_id bigint, primary key (id)) engine=InnoDB
+Hibernate: create table hibernate_sequence (next_val bigint) engine=InnoDB
+Hibernate: insert into hibernate_sequence values ( 1 )
+Hibernate: create table question_table (id bigint not null, date_time varchar(255), img_src varchar(255), question_approved_by varchar(255), question_created_by varchar(255), question_description varchar(255), status varchar(255), title varchar(255), topic varchar(255), primary key (id)) engine=InnoDB
+Hibernate: create table user_table (user_id bigint not null, email_id varchar(255), password varchar(255), user_name varchar(255), primary key (user_id)) engine=InnoDB
+Hibernate: alter table answer_table add constraint FKp690se8k5dqvjid6xrq9ohgti foreign key (question_id) references question_table (id)
+
+
+
+
+do connect chat bot db
+------------------------------------------------------------------------------------------------------------
+Hibernate: create table message (id bigint not null, from_user varchar(255), message varchar(255), primary key (id)) engine=InnoDB
